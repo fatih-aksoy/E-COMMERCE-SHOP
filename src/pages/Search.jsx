@@ -16,17 +16,40 @@ export const getSearchProducts = createAsyncThunk(
     return data;
   }
 );
+//!
+//! search filter islemi TEST
+// const filteredData = data.filter((item) =>
+//   item.title.toLowerCase().includes(getSearchProducts.trim().toLowerCase)
+// );
+
+// console.log(filteredData);
+
+// const searchSlice = createSlice({
+//   name: "search",
+//   initialState,
+//   reducers: {},
+//   extraReducers: (builder) => {
+//     builder.addCase(getSearchProducts.pending, (state, action) => {
+//       state.productsStatus = STATUS.LOADING;
+//     });
+//   },
+// });
 
 const searchSlice = createSlice({
   name: "search",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(getSearchProducts.pending, (state, action) => {
+    builder
+    .addCase(getSearchProducts.pending, (state, action) => {
       state.productsStatus = STATUS.LOADING;
-    });
+    })
   },
 });
+
+
+
+
 
 export default searchSlice.reducer;
 

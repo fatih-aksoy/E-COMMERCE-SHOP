@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import { CiHeart } from "react-icons/ci";
 import { SlBasket } from "react-icons/sl";
@@ -15,6 +15,14 @@ const NavbarRight = () => {
   const { itemCount } = useSelector((state) => state.carts);
   const navigate = useNavigate();
 
+  // ! TEST harfe gore search islemi
+  const [search, setSearch] = useState("");
+  const handleChange = (e) => {
+    console.log(e.target.value);
+    setSearch(e.target.value);
+  };
+  // ! TEST harfe gore search islemi
+
   useEffect(() => {
     dispatch(getCartTotal());
   }, [dispatch]);
@@ -26,6 +34,7 @@ const NavbarRight = () => {
           className="bg-gray-200 outline-none"
           type="text"
           placeholder="Search product..."
+          onChange={handleChange}
         />
         <FaSearch size={28} />
       </div>
